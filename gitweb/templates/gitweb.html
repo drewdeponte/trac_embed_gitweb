@@ -1,0 +1,21 @@
+<!--!
+	TracGitWeb embedding template
+	Created by Noah Kantrowitz on 2007-06-05.
+	Copyright (c) 2007 Noah Kantrowitz. All rights reserved.
+-->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+      <xi:include href="layout.html" />
+      <head>
+        <title>git</title>
+      </head>
+      <body>
+        <div id="content" class="gitweb">
+          ${gitweb_page}
+        </div>
+      </body>
+</html>
