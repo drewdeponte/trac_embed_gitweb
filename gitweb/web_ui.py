@@ -88,6 +88,12 @@ class GitwebModule(Component):
                     rep = rep(req)
                 page = pat.sub(rep, page)
             
+        linkre = re.compile(r'/cgi-bin/gitweb\.cgi', re.S|re.I|re.U)
+        page = linkre.sub(req.href.browser(), page)
+
+        ticketre = re.compile(r'!?(?<!&)#(?P<it_ticket>\d+)')
+        page = ticketre.sub('<a href="' + req.href.ticket() + '/' + '\g<it_ticket>"' + '>' + '#\g<it_ticket>' + '</a>', page)
+
         # If chrome wrapping is disabled, send back the page
         if not chrome_enabled:
             req.send(page, urlf.info().type)
